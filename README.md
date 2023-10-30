@@ -20,13 +20,17 @@ https://github.com/gruntwork-io/git-xargs/issues/48
 
 Due to this, I need to temporarily put user.name and user.email in .gitconfig...
 
-```
+```bash
 fling unlink -i 'README.*' -s ~/Git-GH/dotfiles/git
-```
 
-```
 git config --global user.name "Benjamin Kane"
 git config --global user.email "6081085+bbkane@users.noreply.github.com"
+```
+
+Afterwards, I need to re-symlink my git config:
+
+```bash
+fling link -i 'README.*' -s ~/Git-GH/dotfiles/git
 ```
 
 # Basic steps

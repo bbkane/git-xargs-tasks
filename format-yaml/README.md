@@ -1,0 +1,3 @@
+This should add YAMl config to run yamllint, then format yaml and run yamllint...
+
+My yq script isn't quite working, so I'm gonna stop here and nap. See main.sh for script
