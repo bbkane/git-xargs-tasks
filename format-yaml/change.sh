@@ -9,7 +9,7 @@ IFS=$'\n\t'
 cp "/Users/bbkane/Git-GH/example-go-cli/.yamllint.yml" .
 
 # - update lefthook
-yq -i '.pre-commit.commands.yamllint = {"run": "yamllint"}' lefthook.yml
+yq -i '.pre-commit.commands.yamllint = {"run": "yamllint ."}' lefthook.yml
 
 # - update ci
 # https://mikefarah.gitbook.io/yq/operators/add#append-to-existing-array and figure it out
@@ -20,10 +20,12 @@ yq -i '.jobs.setup.steps += {"name": "Lint YAML files", "run": "yamllint ."}' .g
 # - run yq to format
 find . \( -name '*.yaml' -o -name '*.yml' \) -exec yq -i -P 'sort_keys(..)' {} \;
 
+# - ignore 'on' key for yaml truthiness
+perl -pi -w -e 's/^on:$/on: # yamllint disable-line rule:truthy/g;' .github/workflows/*.yml
+
 # - run yamllint - should pass since we just formatted
 yamllint .
 
 # quitting for now. Next steps:
-# - run on fling
-# - rm dry-run and run on all
-# - merge this yq branch to master
+# - run against other repos
+# - create PRs
