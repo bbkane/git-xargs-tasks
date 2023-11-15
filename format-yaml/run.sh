@@ -16,10 +16,17 @@ set -x
 # 	--dry-run
 
 git-xargs \
-	--repo bbkane/fling \
-	--branch-name git-xargs/format-yaml \
-	--loglevel DEBUG \
-	--commit-message 'Format yaml and add lint' \
-	--no-skip-ci \
-    --dry-run \
+    --repo bbkane/example-go-cli \
+    --repo bbkane/fling \
+    --repo bbkane/gocolor \
+    --repo bbkane/grabbit \
+    --repo bbkane/logos \
+    --repo bbkane/shovel \
+    --repo bbkane/starghaze \
+    --repo bbkane/tablegraph \
+    --repo bbkane/warg \
+    --branch-name git-xargs/format-yaml \
+    --loglevel DEBUG \
+    --commit-message 'Format yaml and add lint' \
+    --no-skip-ci \
     "$(pwd)/change.sh"
