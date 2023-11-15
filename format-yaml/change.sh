@@ -14,7 +14,16 @@ yq -i '.pre-commit.commands.yamllint = {"run": "yamllint"}' lefthook.yml
 # - update ci
 # https://mikefarah.gitbook.io/yq/operators/add#append-to-existing-array and figure it out
 yq -i '.jobs.setup.steps += {"name": "Install yamllint", "run": "pip install yamllint"}' .github/workflows/ci.yml
+
 yq -i '.jobs.setup.steps += {"name": "Lint YAML files", "run": "yamllint ."}' .github/workflows/ci.yml
 
 # - run yq to format
-# - run yamllint? Or let CI do that?
+find . \( -name '*.yaml' -o -name '*.yml' \) -exec yq -i -P 'sort_keys(..)' {} \;
+
+# - run yamllint - should pass since we just formatted
+yamllint .
+
+# quitting for now. Next steps:
+# - run on fling
+# - rm dry-run and run on all
+# - merge this yq branch to master

@@ -22,4 +22,4 @@ git-xargs \
 	--commit-message 'Format yaml and add lint' \
 	--no-skip-ci \
     --dry-run \
-    "$(pwd)/main.sh"
+    "$(pwd)/change.sh"
