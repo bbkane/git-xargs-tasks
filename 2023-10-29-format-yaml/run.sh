@@ -16,7 +16,6 @@ set -x
 # 	--dry-run
 
 git-xargs \
-    --repo bbkane/example-go-cli \
     --repo bbkane/fling \
     --repo bbkane/gocolor \
     --repo bbkane/grabbit \
