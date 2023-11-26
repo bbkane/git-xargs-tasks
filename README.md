@@ -16,7 +16,7 @@ Hold [git-xargs](https://github.com/gruntwork-io/git-xargs) scripts I use to upd
 
 - https://blog.gruntwork.io/introducing-git-xargs-an-open-source-tool-to-update-multiple-github-repos-753f9f3675ec
 - https://docs.google.com/spreadsheets/d/1R0c6VFFU_vLC45zgs_53rcWDHWRxt4S6UxdxBkFgPpo/edit?usp=sharing
-- https://github.com/gruntwork-io/git-xargs#how-to-supply-commands-or-scripts-to-run 
+- https://github.com/gruntwork-io/git-xargs#how-to-supply-commands-or-scripts-to-run
 - https://mikefarah.gitbook.io/yq/
 - https://www.bbkane.com/blog/go-notes/#code-updates-across-repos
 
@@ -30,7 +30,7 @@ Due to https://github.com/gruntwork-io/git-xargs/issues/48, I need to
 temporarily put user.name and user.email in .root gitconfig...
 
 ```bash
-fling unlink --ask false -i 'README.*' -s ~/Git-GH/dotfiles/git
+fling unlink --ask false -s ~/Git-GH/dotfiles/git
 
 git config --global user.name "Benjamin Kane"
 git config --global user.email "6081085+bbkane@users.noreply.github.com"
@@ -40,6 +40,6 @@ After running `git-xargs`, I need to re-symlink my git config:
 
 ```bash
 rm ~/.gitconfig
-fling link --ask false -i 'README.*' -s ~/Git-GH/dotfiles/git
+fling link --ask false -s ~/Git-GH/dotfiles/git
 ```
 
