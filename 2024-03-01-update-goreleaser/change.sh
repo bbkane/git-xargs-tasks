@@ -14,5 +14,3 @@ yq -i '.scoops.[0].repository = .scoops.[0].bucket | del(.scoops.[0].bucket)' .g
 find . \( -name '*.yaml' -o -name '*.yml' \) -exec yq -i -P 'sort_keys(..)' {} \;
 
 yamllint .
-
-## -- TODO: Delete

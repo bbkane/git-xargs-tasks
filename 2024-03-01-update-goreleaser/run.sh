@@ -15,11 +15,16 @@ set -x
 # Can add:
 # 	--dry-run
 
+# shovel is already done
 git-xargs \
-	--dry-run \
+	--repo bbkane/envelope \
 	--repo bbkane/example-go-cli \
+	--repo bbkane/fling \
+	--repo bbkane/grabbit \
+	--repo bbkane/starghaze \
+	--repo bbkane/tablegraph \
 	--branch-name git-xargs/update-goreleaser \
 	--loglevel DEBUG \
-	--commit-message 'Format yaml and add lint' \
+	--commit-message 'Update goreleasor YAML keys' \
 	--no-skip-ci \
 	"$(pwd)/change.sh"
