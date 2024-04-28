@@ -1,0 +1,3 @@
+Enforce single quotes in YAML files. This makes diffing much easier.
+
+Unfortunately, `yq -P` likes to give most strings single quotes, but if that string happens to be a quoted number, it wants to give it double quotes... this comes up in envelop's `sqlc.yml` file. However, `sqlc` is happy with the version as the number 2 instead of it as a string. I don't feel great about this, so I'll open a `yc` issue at some point...
