@@ -5,6 +5,9 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-yq -i '.brews.[0].folder = .brews.[0].directory | del(.brews.[0].folder)' .goreleaser.yml
+yq -i '.brews.[0].directory = .brews.[0].folder | del(.brews.[0].folder)' .goreleaser.yml
 
-lefthook run pre-commit --force
+cp ~/Git-GH/example-go-cli/.github/workflows/release.yml .github/workflows/release.yml
+
+find . \( -name '*.yaml' -o -name '*.yml' \) -exec yq -i -P 'sort_keys(..)' {} \;
+

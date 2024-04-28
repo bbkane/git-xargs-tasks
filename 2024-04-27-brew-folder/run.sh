@@ -16,6 +16,29 @@ set -x
 # 	--dry-run
 
 
+# grabbit dry run first
+
+# git-xargs \
+# 	--repo bbkane/grabbit \
+# 	--branch-name git-xargs/2024-04-27-brew-folder \
+# 	--loglevel DEBUG \
+# 	--commit-message 'update goreleaser to use brew directory instead of brew folder' \
+# 	--no-skip-ci \
+#     --dry-run \
+# 	"$(pwd)/change.sh"
+
+# grabbit for real
+
+# git-xargs \
+# 	--repo bbkane/grabbit \
+# 	--branch-name git-xargs/2024-04-27-brew-folder \
+# 	--loglevel DEBUG \
+# 	--commit-message 'update goreleaser to use brew directory instead of brew folder' \
+# 	--no-skip-ci \
+# 	"$(pwd)/change.sh"
+
+# do all CLIs
+
 git-xargs \
 	--repo bbkane/envelope \
 	--repo bbkane/example-go-cli \
@@ -28,5 +51,4 @@ git-xargs \
 	--loglevel DEBUG \
 	--commit-message 'update goreleaser to use brew directory instead of brew folder' \
 	--no-skip-ci \
-    --dry-run \
 	"$(pwd)/change.sh"
