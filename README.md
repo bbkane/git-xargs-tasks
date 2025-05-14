@@ -22,14 +22,14 @@ Hold [git-xargs](https://github.com/gruntwork-io/git-xargs) scripts I use to upd
 
 # Run Notes
 
-Needs  `GITHUB_OAUTH_TOKEN`  in environment
+Needs  `GITHUB_OAUTH_TOKEN`  in environment. If necessary, create one at [Personal Access Tokens (Classic)](https://github.com/settings/tokens) (I use the classic tokens with all repo acccess).
 
-Envelope instructions (once in the directory):
+Envelope steps:
 
-```bash
-envelope env create
-envelope env ref create --name GITHUB_OAUTH_TOKEN --ref-env-name keyring --ref-var-name github_personal_access_token
-export-env "$PWD"
+```zsh
+enventory env create
+enventory var create --name GITHUB_OAUTH_TOKEN
+cd .  # trigger env loading
 ```
 
 ## .gitconfig modifications
